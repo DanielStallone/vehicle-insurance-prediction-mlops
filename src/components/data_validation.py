@@ -23,9 +23,13 @@ class DataValidation:
         try:
             self.data_ingestion_artifact = data_ingestion_artifact
             self.data_validation_config = data_validation_config
-            self._schema_config =read_yaml_file(file_path=SCHEMA_FILE_PATH)
+            self._schema_config = read_yaml_file(file_path=SCHEMA_FILE_PATH)
+
+            print("SCHEMA PATH:", SCHEMA_FILE_PATH)
+            print("SCHEMA CONFIG:", self._schema_config)
+
         except Exception as e:
-            raise MyException(e,sys)
+            raise MyException(e, sys)
 
     def validate_number_of_columns(self, dataframe: DataFrame) -> bool:
         """
